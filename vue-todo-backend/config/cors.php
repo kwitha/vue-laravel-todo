@@ -13,23 +13,12 @@ return [
     |
     */
 
-    'paths' => ['api/*'], // Apply CORS to all API routes
-
-    'allowed_methods' => ['*'], // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
-
-    'allowed_origins' => [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-],
-
-
-    'allowed_origins_patterns' => [],
-
-    'allowed_headers' => ['*'], // Allow all headers
-
-    'exposed_headers' => [],
-
-    'max_age' => 0,
-
-    'supports_credentials' => false, // Set to true if you need cookies/auth
+  'paths' => ['api/*', 'sanctum/csrf-cookie'],
+'allowed_methods' => ['*'],
+'allowed_origins' => ['http://localhost:5173'],
+'allowed_origins_patterns' => [],
+'allowed_headers' => ['*'],
+'exposed_headers' => [],
+'max_age' => 0,
+'supports_credentials' => true,
 ];

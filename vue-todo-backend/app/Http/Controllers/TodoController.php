@@ -16,13 +16,17 @@ class TodoController extends Controller
         return Todo::create(['title' => $request->title, 'completed' => false]);
     }
 
-    public function update(Request $request, Todo $todo) {
-        $todo->update($request->only(['title', 'completed']));
-        return $todo;
-    }
+   public function update(Request $request, $id)
+{
+    $todo = Todo::findOrFail($id);
+    $todo->update($request->all());
+
+    return response()->json($todo);
+}
 
     public function destroy(Todo $todo) {
         $todo->delete();
         return response()->noContent();
     }
+    
 }
